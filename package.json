@@ -1,0 +1,50 @@
+{
+  "name": "@prelude/refute",
+  "version": "0.0.0",
+  "description": "Refute module.",
+  "type": "module",
+  "main": "./cjs/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test",
+    "preversion": "make test",
+    "postversion": "make postversion"
+  },
+  "keywords": [
+    "prelude",
+    "std",
+    "lib",
+    "stdlib",
+    "library",
+    "refute",
+    "assert",
+    "predicate",
+    "runtime",
+    "types"
+  ],
+  "author": "Mirek Rusin (https://github.com/mirek)",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node16": "1.0.2",
+    "@types/jest": "27.0.3",
+    "eslint": "8.2.0",
+    "jest": "27.3.1",
+    "typescript": "4.5.2"
+  },
+  "module": "./mjs/index.js",
+  "exports": {
+    ".": {
+      "import": "./mjs/index.js",
+      "require": "./cjs/index.js"
+    },
+    "./*.js": {
+      "import": "./mjs/*.js",
+      "require": "./cjs/*.js"
+    },
+    "./*": {
+      "require": "./cjs/*.js"
+    }
+  }
+}
