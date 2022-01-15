@@ -25,6 +25,8 @@ export type Lifted<T> = T extends Refute<infer U> ?
     T :
     never
 
+export type IntersectionOfUnion<T> = (T extends unknown ? (_: T) => unknown : never) extends (_: infer R) => unknown ? R : never
+
 /** @returns success result. */
 export const ok =
   <T>(value: T): Ok<T> =>

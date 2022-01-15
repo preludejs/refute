@@ -1,3 +1,4 @@
+import and from './and.js'
 import array from './array.js'
 import assert from './assert.js'
 import bigint_ from './bigint.js'
@@ -18,6 +19,7 @@ import undefined_ from './undefined.js'
 export * from './prelude.js'
 
 export {
+  and,
   array,
   assert,
   bigint_ as bigint,
