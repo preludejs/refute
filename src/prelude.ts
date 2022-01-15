@@ -1,8 +1,29 @@
 export type Ok<T> = [ value: T, reason: undefined ]
+
 export type Fail = [ value: unknown, reason: string ]
+
 export type Result<T> = Ok<T> | Fail
+
 export type Refute<T> = (value: unknown) => Result<T>
+
 export type Refuted<P> = P extends Refute<infer U> ? U : never
+
+export type Primitive =
+  | undefined
+  | null
+  | false
+  | true
+  | number
+  | bigint
+  | string
+  | symbol
+  | RegExp
+
+export type Lifted<T> = T extends Refute<infer U> ?
+  U :
+  T extends Primitive ?
+    T :
+    never
 
 /** @returns success result. */
 export const ok =

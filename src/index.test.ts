@@ -1,4 +1,4 @@
-import * as $ from '../cjs/index.js'
+import * as $ from './index.js'
 
 test('basic', () => {
 

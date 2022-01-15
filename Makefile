@@ -10,10 +10,7 @@ build-mjs:
 	@rm -Rf mjs
 	@npx tsc -d --sourceMap --outDir mjs
 
-build-test:
-	@npx tsc -m commonjs -p test/tsconfig.json
-
-build: build-cjs build-mjs build-test
+build: build-cjs build-mjs
 
 rebuild: clean build
 
@@ -26,6 +23,6 @@ update:
 postversion:
 	@git push
 	@git push --tags
-	@npm publish --access public
+	@npm publish
 
 .PHONY: test

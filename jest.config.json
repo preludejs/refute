@@ -1,6 +1,7 @@
 {
   "testEnvironment": "node",
   "testMatch": [
-    "<rootDir>/test/(*.)test.js"
-  ]
+    "<rootDir>/cjs/(*.)test.js"
+  ],
+  "snapshotResolver": "./jest.snapshot-resolver.cjs"
 }
