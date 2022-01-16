@@ -23,11 +23,13 @@ import record from './record.js'
 import regexp from './regexp.js'
 import safeInteger from './safe-integer.js'
 import safeReason from './safe-reason.js'
+import strftime from './strftime.js'
 import string_ from './string.js'
 import symbol_ from './symbol.js'
 import tuple from './tuple.js'
 import undefined_ from './undefined.js'
 import undefinedOr from './undefined-or.js'
+import unique from './unique.js'
 
 export * from './prelude.js'
 
@@ -57,9 +59,11 @@ export {
   regexp,
   safeInteger,
   safeReason,
+  strftime,
   string_ as string,
   symbol_ as symbol,
   tuple,
   undefined_ as undefined,
-  undefinedOr
+  undefinedOr,
+  unique
 }
