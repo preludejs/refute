@@ -2,20 +2,26 @@ import { ok, fail, refail, failed, type Primitive, type Refute, type Result, typ
 import lift from './lift.js'
 
 /**
- * Refute combinator over an exact object.
+ * Refute combinator over an exact, partial object.
  *
  * @see object
  * @see partial
- * @see exactPartial
+ * @see exact
  */
-const exact =
+const exactPartial =
   <T extends Record<string, Primitive | Refute<unknown>>>(kvs: T) =>
-    (value: unknown): Result<{ [k in keyof T]: Lifted<T[k]> }> => {
+    (value: unknown): Result<{ [k in keyof T]?: undefined | Lifted<T[k]> }> => {
       if (typeof value !== 'object' || value === null) {
         return fail(value, 'expected object')
       }
       for (const k in kvs) {
         const v = value[k as keyof typeof value]
+
+        // Skip partial.
+        if (v === undefined) {
+          continue
+        }
+
         const r = lift(kvs[k])(v)
         if (failed(r)) {
           return refail(r, `at key ${k}`)
@@ -31,7 +37,7 @@ const exact =
         return fail(value, `has unexpected extra ${keys_} ${keys.map(String).join(', ')}`)
       }
 
-      return ok(value as { [k in keyof T]: Lifted<T[k]> })
+      return ok(value as { [k in keyof T]?: undefined | Lifted<T[k]> })
     }
 
-export default exact
+export default exactPartial

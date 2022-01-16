@@ -5,6 +5,7 @@ import bigint_ from './bigint.js'
 import boolean_ from './boolean.js'
 import defined from './defined.js'
 import exact from './exact.js'
+import exactPartial from './exact-partial.js'
 import finite from './finite.js'
 import lift from './lift.js'
 import null_ from './null.js'
@@ -14,10 +15,13 @@ import number_ from './number.js'
 import object_ from './object.js'
 import oneOf from './one-of.js'
 import or from './or.js'
+import partial from './partial.js'
+import positive from './positive.js'
 import predicate from './predicate.js'
 import reason from './reason.js'
 import record from './record.js'
 import regexp from './regexp.js'
+import safeInteger from './safe-integer.js'
 import safeReason from './safe-reason.js'
 import string_ from './string.js'
 import symbol_ from './symbol.js'
@@ -35,6 +39,7 @@ export {
   boolean_ as boolean,
   defined,
   exact,
+  exactPartial,
   finite,
   lift,
   null_ as null,
@@ -44,10 +49,13 @@ export {
   object_ as object,
   oneOf,
   or,
+  partial,
+  positive,
   predicate,
   reason,
   record,
   regexp,
+  safeInteger,
   safeReason,
   string_ as string,
   symbol_ as symbol,

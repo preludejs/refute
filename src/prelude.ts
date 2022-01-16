@@ -29,6 +29,8 @@ export type IntersectionOfUnion<T> = (T extends unknown ? (_: T) => unknown : ne
 
 export type Constructor = abstract new (...args: any) => any
 
+export const parameter0 = '@prelude/refute:parameter0'
+
 /** @returns success result. */
 export const ok =
   <T>(value: T): Ok<T> =>
