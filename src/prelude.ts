@@ -27,6 +27,8 @@ export type Lifted<T> = T extends Refute<infer U> ?
 
 export type IntersectionOfUnion<T> = (T extends unknown ? (_: T) => unknown : never) extends (_: infer R) => unknown ? R : never
 
+export type Constructor = abstract new (...args: any) => any
+
 /** @returns success result. */
 export const ok =
   <T>(value: T): Ok<T> =>
@@ -47,12 +49,22 @@ export const refail =
   (failure: Fail, reason: string): Fail =>
     fail(failure[0], `${reason}, ${failure[1]}`)
 
+export const nest =
+  <T>(reason: string) =>
+    (a: Refute<T>): Refute<T> =>
+      (value: unknown) => {
+        const r = a(value)
+        return failed(r) ?
+          refail(r, reason) :
+          r
+      }
+
 /** @return failure reason without interpolating value. */
-export const safeFailureReason =
+export const failureReason =
   (failure: Fail): string =>
     `Invalid value ${failure[1]}.`
 
 /** @returns failure reason. */
-export const failureReason =
+export const unsafeFailureReason =
   (failure: Fail): string =>
     `Invalid value ${failure[1]}, got ${failure[0]}.`

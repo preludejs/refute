@@ -1,4 +1,4 @@
-import { ok, failed, type Primitive, type Refute, type Lifted, type Result, type IntersectionOfUnion } from './prelude.js'
+import { ok, failed, type Primitive, type Refute, type Lifted, type IntersectionOfUnion } from './prelude.js'
 import lift from './lift.js'
 
 const and =
@@ -10,7 +10,7 @@ const and =
           return r
         }
       }
-      return ok(value) as IntersectionOfUnion<Result<Lifted<Ts[number]>>>
+      return ok(value as IntersectionOfUnion<Lifted<Ts[number]>>)
     }
 
 export default and

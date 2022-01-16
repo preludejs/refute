@@ -4,7 +4,7 @@ import { ok, fail, type Refute } from './prelude.js'
 const null_: Refute<null> =
   (value: unknown) =>
     value === null ?
-      ok(value) :
+      ok(null) :
       fail(value, 'expected null')
 
 export default null_
