@@ -1,5 +1,129 @@
 # Refute module
 
+* `and: <Ts extends (Primitive | Refute<unknown>)[]>(...as: Ts) => Refute<IntersectionOfUnion<Lifted<Ts[number]>>>`
+
+* `array: <T>(a: Refute<T>) => (values: unknown) => Result<T[]>`
+
+  Combinator over an array.
+
+* `assert: <T>(a: Refute<T>) => (value: unknown) => T`
+
+  Combinator returning refute as assertion.
+
+* `bigint: Refute<bigint>`
+
+  Returns refute for `bigint` type.
+
+* `boolean: Refute<boolean>`
+
+  Returns refute for `boolean` type.
+
+* `defined: <T>(value: T) => Result<Exclude<T, undefined>>`
+
+  Returns refute for defined value type.
+
+* `exact: <T extends Record<string, Primitive | Refute<unknown>>>(kvs: T) => (value: unknown) => Result<{ [k in keyof T]: Lifted<T[k]>; }>`
+
+  Refute combinator over an exact object.
+
+  See `object`
+
+  See `partial`
+
+  See `exactPartial`
+
+* `exactPartial: <T extends Record<string, Primitive | Refute<unknown>>>(kvs: T) => (value: unknown) => Result<{ [k in keyof T]?: Lifted<T[k]>; }>`
+
+  Refute combinator over an exact, partial object.
+
+  See `object`
+
+  See `partial`
+
+  See `exact`
+
+* `finite: (value: unknown) => Result<number>`
+
+  Returns failure if `value` is not a finite number.
+
+* `lift: <T extends Primitive | Refute<unknown>>(a: T) => Refute<Lifted<T>>`
+
+* `null: Refute<null>`
+
+  Returns refute for `null` type.
+
+* `nullishOr: <T>(a: Refute<T>) => Refute<T>`
+
+* `nullOr: <T>(a: Refute<T>) => Refute<T>`
+
+* `number: Refute<number>`
+
+  Returns refute for `number` type.
+
+* `object: <T extends Record<string, Primitive | Refute<unknown>>>(kvs: T) => (value: unknown) => Result<{ [k in keyof T]: Lifted<T[k]>; }>`
+
+  Refute combinator over an inexact object.
+
+  See `partial`
+
+  See `exact
+
+  See `exactPartial`
+
+* `oneOf: <T extends Primitive>(...values: readonly T[]) => Refute<T>`
+
+  Returns failure if value doesn't strictly equal any of provided `values`.
+
+* `or: <Ts extends (Primitive | Refute<unknown>)[]>(...as: Ts) => Refute<Lifted<Ts[number]>>`
+
+* `partial: <T extends Record<string, Primitive | Refute<unknown>>>(kvs: T) => (value: unknown) => Result<{ [k in keyof T]?: Lifted<T[k]>; }>`
+
+* `positive: Refute<number>`
+
+  Returns confirms positive number.
+
+* `predicate: <T>(a: Refute<T>) => (value: unknown) => value is T`
+
+  Combinator returning refute result as predicate.
+
+* `reason: <T>(a: Refute<T>) => (value: unknown) => string`
+
+  Combinator returning refute reason or `undefined`.
+
+* `record: <K extends string | number | symbol, V>(k: Refute<K>, v: Refute<V>) => Refute<Record<K, V>>`
+
+* `regexp: (re: RegExp) => Refute<string>`
+
+* `safeInteger: Refute<number>`
+
+  Returns confirms safe integer.
+
+* `safeReason: <T>(a: Refute<T>) => (value: unknown) => string`
+
+  Combinator returning refute reason without interpolating value or `undefined`.
+
+* `strftime: (f: string) => Refute<string>`
+
+* `string: Refute<string>`
+
+  Returns refute for `string` type.
+
+* `symbol: Refute<symbol>`
+
+  Returns refute for `symbol` type.
+
+* `tuple: <T extends Refute<unknown>[]>(...as: T) => Refute<{ [I in keyof T]: Refuted<T[I]>; }>`
+
+* `undefined: Refute<undefined>`
+
+  Returns refute for `undefined` type.
+
+* `undefinedOr: <T>(a: Refute<T>) => Refute<T>`
+
+* `unique: <T>(a: Refute<T>, f?: (value: T) => Primitive) => (values: unknown) => Result<T[]>`
+
+  Returns confirmation of an unique array.
+
 # Usage
 
 ```bash
