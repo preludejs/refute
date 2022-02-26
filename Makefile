@@ -23,6 +23,6 @@ update:
 postversion:
 	@git push
 	@git push --tags
-	@npm publish
+	@npm publish --access public
 
 .PHONY: test
