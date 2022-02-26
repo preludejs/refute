@@ -1,5 +1,4 @@
 .github
 .vscode
-*.test.js
-jest.config.json
-test
+*.test.*
+jest.*
