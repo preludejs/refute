@@ -1,6 +1,4 @@
-*.js
 cjs
-mjs
 node_modules
 .vscode/configurationCache.log
 .vscode/dryrun.log
