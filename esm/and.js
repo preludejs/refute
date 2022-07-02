@@ -1,3 +1,4 @@
+/// <reference types="./and.d.ts" />
 import { ok, failed } from './prelude.js';
 import lift from './lift.js';
 const and = (...as) => (value) => {

@@ -1,3 +1,4 @@
+/// <reference types="./string.d.ts" />
 import { ok, fail } from './prelude.js';
 /** @returns refute for `string` type. */
 const string_ = (value) => typeof value === 'string' ?

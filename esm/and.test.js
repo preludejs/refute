@@ -1,3 +1,4 @@
+/// <reference types="./and.test.d.ts" />
 import * as $ from './index.js';
 test('and', () => {
     const f = $.and($.object({ foo: $.string, bar: $.string, baz: $.string }), $.object({ bar: $.string, baz: 'BAZ' }));

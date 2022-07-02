@@ -1,3 +1,4 @@
+/// <reference types="./prelude.d.ts" />
 export const parameter0 = '@prelude/refute:parameter0';
 /** @returns success result. */
 export const ok = (value) => [value, undefined];

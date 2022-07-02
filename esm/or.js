@@ -1,3 +1,4 @@
+/// <reference types="./or.d.ts" />
 import { ok, fail, failed } from './prelude.js';
 import lift from './lift.js';
 const or = (...as) => (value) => {

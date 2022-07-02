@@ -1,3 +1,4 @@
+/// <reference types="./boolean.d.ts" />
 import { ok, fail } from './prelude.js';
 /** @returns refute for `boolean` type. */
 const boolean_ = (value) => typeof value === 'boolean' ?

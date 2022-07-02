@@ -1,3 +1,4 @@
+/// <reference types="./defined.d.ts" />
 import { ok, fail } from './prelude.js';
 /** @returns refute for defined value type. */
 const defined = (value) => typeof value === 'undefined' ?

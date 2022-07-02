@@ -1,3 +1,4 @@
+/// <reference types="./assert.d.ts" />
 import { failed, failureReason } from './prelude.js';
 /** Combinator returning refute as assertion. */
 const assert = (a) => (value) => {

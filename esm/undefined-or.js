@@ -1,3 +1,4 @@
+/// <reference types="./undefined-or.d.ts" />
 import { ok, nest } from './prelude.js';
 const undefinedOr = (a) => (value) => value === undefined ?
     ok(value) :

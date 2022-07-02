@@ -1,3 +1,4 @@
+/// <reference types="./bigint.d.ts" />
 import { ok, fail } from './prelude.js';
 /** @returns refute for `bigint` type. */
 const bigint_ = (value) => typeof value === 'bigint' ?

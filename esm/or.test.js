@@ -1,3 +1,4 @@
+/// <reference types="./or.test.d.ts" />
 import * as $ from './index.js';
 test('or', () => {
     const f = $.or($.number, 'ABC', $.object({ foo: 1 }));

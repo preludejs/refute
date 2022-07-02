@@ -1,3 +1,4 @@
+/// <reference types="./one-of.d.ts" />
 import { ok, fail } from './prelude.js';
 /** @returns failure if value doesn't strictly equal any of provided `values`. */
 const oneOf = (...values) => (value) => {

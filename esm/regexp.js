@@ -1,3 +1,4 @@
+/// <reference types="./regexp.d.ts" />
 import { ok, fail } from './prelude.js';
 const regexp = (re) => (value) => typeof value !== 'string' ?
     fail(value, 'expected string') :

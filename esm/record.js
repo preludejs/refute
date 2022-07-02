@@ -1,3 +1,4 @@
+/// <reference types="./record.d.ts" />
 import { ok, fail, failed, refail } from './prelude.js';
 const record = (k, v) => (value) => {
     if (typeof value !== 'object' || value === null) {

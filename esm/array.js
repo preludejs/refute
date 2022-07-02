@@ -1,3 +1,4 @@
+/// <reference types="./array.d.ts" />
 import { ok, fail, failed, refail } from './prelude.js';
 /** Combinator over an array. */
 const array = (a) => (values) => {

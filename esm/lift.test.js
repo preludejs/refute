@@ -1,3 +1,4 @@
+/// <reference types="./lift.test.d.ts" />
 import * as $ from './index.js';
 test('lift', () => {
     const refute = $.object({

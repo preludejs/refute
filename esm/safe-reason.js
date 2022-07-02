@@ -1,3 +1,4 @@
+/// <reference types="./safe-reason.d.ts" />
 import { failureReason, failed } from './prelude.js';
 /** Combinator returning refute reason without interpolating value or `undefined`. */
 export const safeReason = (a) => (value) => {

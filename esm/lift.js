@@ -1,3 +1,4 @@
+/// <reference types="./lift.d.ts" />
 import eq from './eq.js';
 import null_ from './null.js';
 import regexp from './regexp.js';

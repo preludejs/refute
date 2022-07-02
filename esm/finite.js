@@ -1,3 +1,4 @@
+/// <reference types="./finite.d.ts" />
 import { ok, fail } from './prelude.js';
 /** @returns failure if `value` is not a finite number. */
 const finite = (value) => typeof value !== 'number' || !Number.isFinite(value) ?

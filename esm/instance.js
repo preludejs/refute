@@ -1,3 +1,4 @@
+/// <reference types="./instance.d.ts" />
 import { ok, fail } from './prelude.js';
 const instance = (class_) => (value) => value instanceof class_ ?
     ok(value) :

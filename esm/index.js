@@ -1,3 +1,4 @@
+/// <reference types="./index.d.ts" />
 import and from './and.js';
 import array from './array.js';
 import assert from './assert.js';

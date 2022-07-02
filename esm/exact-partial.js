@@ -1,3 +1,4 @@
+/// <reference types="./exact-partial.d.ts" />
 import { ok, fail, refail, failed } from './prelude.js';
 import lift from './lift.js';
 /**

@@ -1,3 +1,4 @@
+/// <reference types="./strftime.d.ts" />
 import { ok, fail } from './prelude.js';
 const map = {
     // Day

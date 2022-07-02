@@ -1,3 +1,4 @@
+/// <reference types="./tuple.d.ts" />
 import { ok, fail, refail, failed } from './prelude.js';
 const tuple = (...as) => (value) => {
     if (!Array.isArray(value)) {

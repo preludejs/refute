@@ -1,3 +1,4 @@
+/// <reference types="./index.test.d.ts" />
 import * as $ from './index.js';
 test('basic', () => {
     const refute = $.object({

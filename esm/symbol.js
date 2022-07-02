@@ -1,3 +1,4 @@
+/// <reference types="./symbol.d.ts" />
 import { ok, fail } from './prelude.js';
 /** @returns refute for `symbol` type. */
 const symbol_ = (value) => typeof value === 'symbol' ?

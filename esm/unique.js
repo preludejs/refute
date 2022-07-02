@@ -1,3 +1,4 @@
+/// <reference types="./unique.d.ts" />
 import { ok, fail, failed, refail } from './prelude.js';
 /** @returns confirmation of an unique array. */
 const unique = (a, f) => (values) => {

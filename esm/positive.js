@@ -1,3 +1,4 @@
+/// <reference types="./positive.d.ts" />
 import { ok, fail } from './prelude.js';
 /** @returns confirms positive number. */
 const positive = (value) => typeof value === 'number' && value > 0 ?

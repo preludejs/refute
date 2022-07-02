@@ -9,6 +9,7 @@ build-cjs:
 build-esm:
 	@rm -Rf esm
 	@npx tsc -d --sourceMap --outDir esm
+	@node tsrd.cjs
 
 build: build-cjs build-esm
 

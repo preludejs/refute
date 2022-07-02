@@ -1,3 +1,4 @@
+/// <reference types="./exact.test.d.ts" />
 import * as $ from './index.js';
 test('single extra key', () => {
     expect($.safeReason($.exact({ foo: 'FOO', bar: 'BAR' }))({ foo: 'FOO', bar: 'BAR', baz: 'BAZ' }))
