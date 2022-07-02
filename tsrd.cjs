@@ -1,15 +1,14 @@
 const Fs = require('fs')
 const Path = require('path')
 
-/** Prepends tripple-slash reference directives for js files to support typy information in deno. */
-const prepend =
-  dir => {
-    const files = Fs.readdirSync(dir)
-    for (const file of files) {
+/** Prepends tripple-slash reference directives for js files to support typings in deno. */
+const walk =
+  dir =>
+    Fs.readdirSync(dir).forEach(file => {
       const path = Path.join(dir, file)
       if (Fs.statSync(path).isDirectory()) {
-        scan(path)
-        continue
+        walk(path)
+        return
       }
       if (Path.extname(path) === '.js') {
         const basename = Path.basename(path, '.js')
@@ -19,7 +18,6 @@ const prepend =
           Fs.writeFileSync(path, tsrd + content)
         }
       }
-    }
-  }
+    })
 
-prepend('esm')
+walk('esm')
