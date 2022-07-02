@@ -1,3 +1,9 @@
+![@prelude/refute](https://shields.io/npm/v/@prelude/refute)
+![esm cjs](https://img.shields.io/badge/module-esm%20cjs%20deno-f39f37)
+![[deno](https://img.shields.io/badge/deno-f39f37)](https://raw.githubusercontent.com/preludejs/refute/master/esm/index.js)
+
+---
+
 # Refute module
 
 * `and: <Ts extends (Primitive | Refute<unknown>)[]>(...as: Ts) => Refute<IntersectionOfUnion<Lifted<Ts[number]>>>`
