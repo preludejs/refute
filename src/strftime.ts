@@ -101,7 +101,7 @@ const strftime =
       }
       let i = 0
       for (const token of tokens(f)) {
-        const value_ = value.substr(i)
+        const value_ = value.slice(i)
         switch (token.type) {
           case 'regexp': {
             const m = value_.match(token.value)
