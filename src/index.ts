@@ -6,6 +6,7 @@ import boolean_ from './boolean.js'
 import defined from './defined.js'
 import exact from './exact.js'
 import exactPartial from './exact-partial.js'
+import false_ from './false.js'
 import finite from './finite.js'
 import lift from './lift.js'
 import null_ from './null.js'
@@ -26,6 +27,7 @@ import safeReason from './safe-reason.js'
 import strftime from './strftime.js'
 import string_ from './string.js'
 import symbol_ from './symbol.js'
+import true_ from './true.js'
 import tuple from './tuple.js'
 import undefined_ from './undefined.js'
 import undefinedOr from './undefined-or.js'
@@ -42,6 +44,7 @@ export {
   defined,
   exact,
   exactPartial,
+  false_ as false,
   finite,
   lift,
   null_ as null,
@@ -62,6 +65,7 @@ export {
   strftime,
   string_ as string,
   symbol_ as symbol,
+  true_ as true,
   tuple,
   undefined_ as undefined,
   undefinedOr,
