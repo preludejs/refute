@@ -1,5 +1,6 @@
-cjs
-node_modules
 .vscode/configurationCache.log
 .vscode/dryrun.log
 .vscode/targets.log
+cjs
+esm
+node_modules
