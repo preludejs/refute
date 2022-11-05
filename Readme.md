@@ -157,8 +157,8 @@ const value_ = assert(value)
 // value_ is { foo: string, bar: number }
 // throws if not.
 
-console.log($.reason(refute)({ foo: 'a' }))
-// Invalid value at key foo, expected number, got a.
+console.log($.reason(refute)({ bar: 'a' }))
+// Invalid value at key bar, expected number, got a.
 ```
 
 # License
