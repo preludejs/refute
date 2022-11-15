@@ -1,29 +1,30 @@
+test:
+	pnpm exec jest
+
 clean:
-	@rm -Rf cjs esm test/*.js
+	rm -Rf cjs mjs test/*.js
 
 build-cjs:
-	@rm -Rf cjs
-	@npx tsc -m commonjs -d --sourceMap --outDir cjs
-	@echo '{"type":"commonjs"}' > cjs/package.json
+	rm -Rf cjs
+	pnpm exec tsc -m commonjs -d --sourceMap --outDir cjs
+	echo '{"type":"commonjs"}' > cjs/package.json
 
-build-esm:
-	@rm -Rf esm
-	@npx tsc -d --sourceMap --outDir esm
-	@node tsrd.cjs
+build-mjs:
+	rm -Rf mjs
+	pnpm exec tsc -d --sourceMap --outDir mjs
 
-build: build-cjs build-esm
+build: build-cjs build-mjs
 
 rebuild: clean build
 
-test: rebuild
-	@npx jest
-
 update:
-	@npx npm-check --update --save-exact
+	pnpm up --latest
+
+preversion: test rebuild
 
 postversion:
-	@git push
-	@git push --tags
-	@npm publish --access public
+	git push
+	git push --tags
+	pnpm publish
 
 .PHONY: test

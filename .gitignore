@@ -1,6 +1,7 @@
-.vscode/configurationCache.log
-.vscode/dryrun.log
-.vscode/targets.log
+*.js
 cjs
-esm
+configurationCache.log
+dryrun.log
+mjs
 node_modules
+targets.log
