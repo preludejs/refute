@@ -3,6 +3,7 @@ import array from './array.js'
 import assert from './assert.js'
 import bigint_ from './bigint.js'
 import boolean_ from './boolean.js'
+import calendarDate from './calendar-date.js'
 import defined from './defined.js'
 import exact from './exact.js'
 import exactPartial from './exact-partial.js'
@@ -41,6 +42,7 @@ export {
   assert,
   bigint_ as bigint,
   boolean_ as boolean,
+  calendarDate,
   defined,
   exact,
   exactPartial,
