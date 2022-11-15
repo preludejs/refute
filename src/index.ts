@@ -33,6 +33,7 @@ import tuple from './tuple.js'
 import undefined_ from './undefined.js'
 import undefinedOr from './undefined-or.js'
 import unique from './unique.js'
+import unknown_ from './unknown.js'
 
 export * from './prelude.js'
 
@@ -71,5 +72,6 @@ export {
   tuple,
   undefined_ as undefined,
   undefinedOr,
-  unique
+  unique,
+  unknown_ as unknown
 }
