@@ -9,12 +9,13 @@ const unique =
       }
       const set = new Set
       for (let i = 0; i < values.length; i++) {
-        const k = f ? f(values[i]) : values[i]
-        if (set.has(k)) {
-          return fail(values, `duplicate value at index ${i}`)
+        const value = values[i]
+        const key = f ? f(value) : value
+        if (set.has(key)) {
+          return fail(value, `duplicate value at index ${i}`)
         }
-        set.add(k)
-        const r = a(values[i])
+        set.add(key)
+        const r = a(value)
         if (failed(r)) {
           return refail(r, `at index ${i}`)
         }
