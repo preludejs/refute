@@ -54,53 +54,53 @@ const map = {
 
   // Misc
   n: /^\n/,
-  t: /^\t/,
-  '%': /^%/
+  t: /^\t/
 }
 
-type Token =
+export type Token =
   | { type: 'regexp', value: RegExp }
   | { type: 'literal', value: string }
 
-const tokens =
-  function *(value: string): Generator<Token> {
-    let j = 0
+export const tokenize =
+  (value: string): Token[] => {
+    const tokens: Token[] = []
     let i = 0
     for (i = 0; i < value.length; i++) {
-      if (value[i] === '%') {
-        if (j < i - 1) {
-          yield { type: 'literal', value: value.slice(j + 1, i) }
-        }
-        const r = map[value[i + 1] as keyof typeof map]
-        if (typeof r === 'undefined') {
-          throw new TypeError(`Unknown strftime rule %${value[i + 1]}.`)
-        }
-        if (typeof r === 'string') {
-          yield *tokens(r)
-        }
-        if (r instanceof RegExp) {
-          yield { type: 'regexp', value: r }
-        }
-        i++
-        j = i
+      if (value[i] !== '%') {
+        tokens.push({ type: 'literal', value: value[i] })
+        continue
       }
+      if (value[i + 1] === '%') {
+        tokens.push({ type: 'literal', value: '%' })
+        i++
+        continue
+      }
+      const r = map[value[i + 1] as keyof typeof map]
+      if (!r) {
+        throw new Error(`Unknown strftime rule %${value[i + 1]}.`)
+      }
+      if (typeof r === 'string') {
+        for (const token of tokenize(r)) {
+          tokens.push(token)
+        }
+      }
+      if (r instanceof RegExp) {
+        tokens.push({ type: 'regexp', value: r })
+      }
+      i++
     }
-    if (j < i - 1) {
-      yield { type: 'literal', value: value.slice(j + 1, i) }
-    }
+    return tokens
   }
 
 const strftime =
   (f: string): Refute<string> => {
-    if (typeof f !== 'string') {
-      throw new TypeError(`Expected format string, got ${f}.`)
-    }
+    const tokens = tokenize(f)
     return (value: unknown) => {
       if (typeof value !== 'string') {
-        throw fail(value, `expected ${f} strftime formatted string`)
+        return fail(value, `expected string`)
       }
       let i = 0
-      for (const token of tokens(f)) {
+      for (const token of tokens) {
         const value_ = value.slice(i)
         switch (token.type) {
           case 'regexp': {
@@ -108,20 +108,20 @@ const strftime =
             if (m) {
               i += m[0].length
             } else {
-              throw fail(value, `expected ${f} strftime format, failed at index ${i}, unrecognised part ${value_}`)
+              return fail({ value, index: i }, `expected ${f} strftime, failed at index ${i}`)
             }
             break
           }
           case 'literal':
             if (!value_.startsWith(token.value)) {
-              throw fail(value, `expected ${f} strftime format, failed at index ${i}, unrecognised part ${value_}`)
+              return fail({ value, index: i }, `expected ${f} strftime, failed at index ${i}`)
             }
             i += token.value.length
             break
         }
       }
       if (i !== value.length) {
-        throw fail(value, `expected ${f} strftime format, failed at index ${i}, unrecognised part ${value.substr(i)}.`)
+        return fail({ value, index: i }, `expected ${f} strftime, failed at index ${i}`)
       }
       return ok(value)
     }
