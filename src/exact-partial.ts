@@ -29,12 +29,11 @@ const exactPartial =
       }
 
       // Confirm exactness.
-      const keys = Object
-        .keys(value as object)
-        .filter(_ => !(_ in kvs))
-      if (keys.length > 0) {
-        const keys_ = keys.length === 1 ? 'key' : 'keys'
-        return fail(value, `has unexpected extra ${keys_} ${keys.map(String).join(', ')}`)
+      for (const key of Object.keys(value)) {
+        if (key in kvs) {
+          continue
+        }
+        return fail(value, `unexpected key ${key}`)
       }
 
       return ok(value as { [k in keyof T]?: undefined | Lifted<T[k]> })

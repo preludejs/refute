@@ -4,7 +4,7 @@ const record =
   <K extends string | symbol | number, V>(k: Refute<K>, v: Refute<V>): Refute<Record<K, V>> =>
     (value: unknown) => {
       if (typeof value !== 'object' || value === null) {
-        return fail(value, 'expected record')
+        return fail(value, 'expected object')
       }
       let r: Result<unknown>
       for (const entry of Object.entries(value)) {
@@ -14,7 +14,7 @@ const record =
         }
         r = v(entry[1])
         if (failed(r)) {
-          return refail(r, `in ${entry[0]}`)
+          return refail(r, `at key ${entry[0]}`)
         }
       }
       return ok(value as Record<K, V>)
