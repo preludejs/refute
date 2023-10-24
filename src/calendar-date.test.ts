@@ -6,14 +6,14 @@ const range = $.exact({
 })
 
 test('not a string', () => {
-  expect(range({ from: 1, to: 2 })).toEqual([1, 'at key from, expected string'])
+  expect(range({ from: 1, to: 2 })).toEqual($.fail(1, 'at key from, expected string'))
 })
 
 test('valid', () => {
-  expect(range(JSON.parse('{"from":"2001-01-01","to":"2001-01-02"}'))).toEqual([{
+  expect(range(JSON.parse('{"from":"2001-01-01","to":"2001-01-02"}'))).toEqual($.ok({
     from: '2001-01-01',
     to: '2001-01-02'
-  }, undefined])
+  }))
 })
 
 test('not valid date string', () => {

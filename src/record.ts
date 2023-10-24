@@ -7,14 +7,15 @@ const record =
         return fail(value, 'expected object')
       }
       let r: Result<unknown>
-      for (const entry of Object.entries(value)) {
-        r = k(entry[0])
+      for (const k_ in value) {
+        r = k(k_)
         if (failed(r)) {
           return refail(r, 'key')
         }
-        r = v(entry[1])
+        const v_ = value[k_]
+        r = v(v_)
         if (failed(r)) {
-          return refail(r, `at key ${entry[0]}`)
+          return refail(r, `at key ${k_}`)
         }
       }
       return ok(value as Record<K, V>)
