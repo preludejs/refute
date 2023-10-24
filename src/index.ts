@@ -1,6 +1,7 @@
 import and from './and.js'
 import array from './array.js'
 import assert from './assert.js'
+import between from './between.js'
 import bigint_ from './bigint.js'
 import boolean_ from './boolean.js'
 import calendarDate from './calendar-date.js'
@@ -46,6 +47,7 @@ export {
   and,
   array,
   assert,
+  between,
   bigint_ as bigint,
   boolean_ as boolean,
   calendarDate,
