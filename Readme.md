@@ -2,6 +2,18 @@
 ![esm cjs](https://img.shields.io/badge/module-esm%20cjs-f39f37)
 [![deno](https://img.shields.io/badge/deno-f39f37)](https://raw.githubusercontent.com/preludejs/refute/master/esm/index.js)
 
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=preludejs_refute&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=preludejs_refute)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=preludejs_refute&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=preludejs_refute)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=preludejs_refute&metric=bugs)](https://sonarcloud.io/summary/new_code?id=preludejs_refute)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=preludejs_refute&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=preludejs_refute)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=preludejs_refute&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=preludejs_refute)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=preludejs_refute&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=preludejs_refute)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=preludejs_refute&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=preludejs_refute)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=preludejs_refute&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=preludejs_refute)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=preludejs_refute&metric=coverage)](https://sonarcloud.io/summary/new_code?id=preludejs_refute)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=preludejs_refute&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=preludejs_refute)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=preludejs_refute&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=preludejs_refute)
+
 ---
 
 # Refute module
