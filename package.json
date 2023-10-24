@@ -1,6 +1,6 @@
 {
   "name": "@prelude/refute",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Refute module.",
   "type": "module",
   "module": "./mjs/index.js",
