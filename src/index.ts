@@ -9,8 +9,12 @@ import exact from './exact.js'
 import exactPartial from './exact-partial.js'
 import false_ from './false.js'
 import finite from './finite.js'
+import gt from './gt.js'
+import gte from './gte.js'
 import is from './is.js'
 import lift from './lift.js'
+import lt from './lt.js'
+import lte from './lte.js'
 import null_ from './null.js'
 import nullishOr from './nullish-or.js'
 import nullOr from './null-or.js'
@@ -50,8 +54,12 @@ export {
   exactPartial,
   false_ as false,
   finite,
+  gt,
+  gte,
   is,
   lift,
+  lt,
+  lte,
   null_ as null,
   nullishOr,
   nullOr,
