@@ -1,6 +1,6 @@
 import { ok, fail, type Refute } from './prelude.js'
 
-/** @returns refute for `number` type. */
+/** @returns ok if value is number, failure otherwise. */
 const number_: Refute<number> =
   (value: unknown) =>
     typeof value === 'number' ?

@@ -1,6 +1,6 @@
 import * as $ from './index.js'
 
 test('bigint', () => {
-  expect($.bigint(0n)).toEqual([0n, undefined])
-  expect($.bigint(1)).toEqual([1, 'expected bigint'])
+  expect($.bigint(0n)).toEqual($.ok(0n))
+  expect($.bigint(1)).toEqual($.fail(1, 'expected bigint'))
 })

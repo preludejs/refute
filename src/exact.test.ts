@@ -1,7 +1,7 @@
 import * as $ from './index.js'
 
 test('exact', () => {
-  expect($.exact({})(null)).toEqual([null, 'expected object'])
+  expect($.exact({})(null)).toEqual($.fail(null, 'expected object'))
 })
 
 test('single extra key', () => {

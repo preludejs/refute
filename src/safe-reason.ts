@@ -1,4 +1,4 @@
-import { failureReason, failed, type Refute } from './prelude.js'
+import { reasonWithoutReceived, failed, type Refute } from './prelude.js'
 
 /** Combinator returning refute reason without interpolating value or `undefined`. */
 export const safeReason =
@@ -6,7 +6,7 @@ export const safeReason =
     (value: unknown): undefined | string => {
       const r = a(value)
       return failed(r) ?
-        failureReason(r) :
+        reasonWithoutReceived(r) :
         undefined
     }
 
