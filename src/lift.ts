@@ -3,6 +3,13 @@ import eq from './eq.js'
 import null_ from './null.js'
 import regexp from './regexp.js'
 
+/**
+ * Lifts a primitive value or refute function to a refute function.
+ * For primitive values, creates an equality check refute;
+ * For refute functions, passes them through unchanged.
+ * @param a - The primitive value or refute function to lift
+ * @returns A refute function that validates against the provided value or using the provided function
+ */
 const lift =
   <T extends Primitive | Refute<unknown>>(a: T): Refute<Lifted<T>> => {
     switch (typeof a) {
@@ -22,10 +29,10 @@ const lift =
         if (a instanceof RegExp) {
           return regexp(a) as Refute<Lifted<T>>
         }
-        throw new TypeError('Can\'t lift ${value}.')
+        throw new TypeError(`Can't lift ${a}.`)
       }
       default:
-        throw new TypeError('Can\'t lift ${value}.')
+        throw new TypeError(`Can't lift ${a as any}.`)
     }
   }
 

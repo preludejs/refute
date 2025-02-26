@@ -61,6 +61,11 @@ export type Token =
   | { type: 'regexp', value: RegExp }
   | { type: 'literal', value: string }
 
+/**
+ * Tokenizes a strftime format string into a sequence of literal and regexp tokens.
+ * @param value - The strftime format string to tokenize
+ * @returns An array of tokens representing the format string
+ */
 export const tokenize =
   (value: string): Token[] => {
     const tokens: Token[] = []
@@ -92,6 +97,11 @@ export const tokenize =
     return tokens
   }
 
+/**
+ * Creates a refute function that validates if a string matches the specified strftime format.
+ * @param f - The strftime format string to match against
+ * @returns A refute function that validates if a string follows the specified strftime format
+ */
 const strftime =
   (f: string): Refute<string> => {
     const tokens = tokenize(f)
