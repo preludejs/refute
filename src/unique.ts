@@ -10,15 +10,15 @@ const unique =
       const set = new Set
       for (let i = 0; i < values.length; i++) {
         const value = values[i]
+        const refute = a(value)
+        if (failed(refute)) {
+          return refail(refute, `at index ${i}`)
+        }
         const key = f ? f(value) : value
         if (set.has(key)) {
           return fail(value, `duplicate value at index ${i}`)
         }
         set.add(key)
-        const r = a(value)
-        if (failed(r)) {
-          return refail(r, `at index ${i}`)
-        }
       }
       return ok(values)
     }
